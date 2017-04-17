@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>A-Frame Test</title>
+    <meta name="description" content="A-Frame Test">
+    <script src="/vendor/aframe-v0.5.0.min.js"></script>
+    <script src="/dist/bundle.js"></script>
+  </head>
+
+  <body>
+    <a-scene fog="type: exponential; density: 0.1; color: #046">
+      <a-assets>
+        <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+        <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        <audio id="audioSource" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>
+      </a-assets>
+
+      <a-text value="Hello, A-Frame!" color="#BBB"
+        position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
+
+      <a-entity
+        id="box"
+        geometry="primitive: box"
+        material="src: #boxTexture"
+        position="0 2 -5"
+        rotation="0 45 45"
+        scale="1 1 1"
+        animation="property: position; dir: alternate; dur: 2000; loop: true; easing: easeOutSine; to: 0 2.2 -2.5"
+        scale-on-mouseenter="to: 1.2 1.2 1.2; revertOnMouseleave: true"
+        rotate-on-click>
+        <a-sound src="#audioSource" autoplay="true" loop="true"></a-sound>
+      </a-entity>
+
+      <a-camera>
+        <a-cursor fuseTimeout="500"></a-cursor>
+      </a-camera>
+
+      <a-sky src="#skyTexture" material="fog: false"></a-sky>
+      <a-plane src="#groundTexture" rotation="-90 0 0" width="30" height="30" repeat="1 1"></a-plane>
+
+      <a-light type="ambient" color="#445451"></a-light>
+      <a-light type="point" intensity="2" position="-6 4 4"></a-light>
+
+    </a-scene>
+  </body>
+
+</html>
