@@ -21,8 +21,6 @@ AFRAME.registerGeometry('tube', {
   },
 
   init: function (data) {
-    console.log('tube data: ', data);
-
     // Convert the array of points into vertices
     for (var i = 0; i < data.points.length; i++) {
       var x = data.points[i][0];
@@ -33,6 +31,7 @@ AFRAME.registerGeometry('tube', {
 
     // Create a path from the points
     var path = new THREE.CatmullRomCurve3(data.points);
+    console.log('path at tube creaction: ', path);
 
     this.geometry = new THREE.TubeGeometry(path, data.segments, data.radius, data.radialSegments, data.closed);
   }
