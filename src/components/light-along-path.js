@@ -10,6 +10,7 @@ AFRAME.registerComponent('light-along-path', {
 
   init: function () {
     var targetElement = this.data.targetElement;
+    console.log(this.el.object3D);
     this.speed = this.data.speed;
     this.offset = this.data.offset;
     this.path = targetElement.getObject3D('mesh').geometry.metadata.parameters.path;
