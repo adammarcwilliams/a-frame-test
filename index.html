@@ -11,20 +11,23 @@
 
   <body>
     <a-scene fog="type: linear; color: #000; near: 100; far: 200">
+      <!-- PRELOAD ASSETS -->
       <a-assets>
 
       </a-assets>
 
-      <!-- <a-entity id="tube" geometry="primitive: tube" material="color: #00ffff; side: back; wireframe:true"></a-entity> -->
+      <!-- GAME OBJECTS -->
       <a-entity id="tube" geometry="primitive: tube" mesh-lambert-material="color: #00ffff; side: back; wireframe: true"></a-entity>
 
-      <a-entity light="type: point; color: #ffffff; intensity: 1.2; distance: 200; decay: 2" light-along-path="targetElement: #tube"></a-entity>
+      <!-- LIGHTS / ENVIROMENT OBJECTS-->
+      <a-entity light="type: point; color: #fff; intensity: 1.2; distance: 200; decay: 2" light-along-path="targetElement: #tube"></a-entity>
 
+      <a-sky color="#000"></a-sky>
+
+      <!-- CAMERA / PLAYER CONTROLLER -->
       <a-entity move-along-path="targetElement: #tube" rotation="0 -90 0">
         <a-camera fov="45" rotation="0 -180 0"></a-camera>
       </a-entity>
-
-      <a-sky color="#000"></a-sky>
 
     </a-scene>
   </body>
